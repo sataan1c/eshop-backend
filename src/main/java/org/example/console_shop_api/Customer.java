@@ -24,9 +24,9 @@ public class Customer {
 
     public BigDecimal getBalance() {return balance; }
 
-    public String setName(String name) {this.name = name; }
+    public void setName(String name) {this.name = name; }
 
-    public String setEmail(String email) {this.email = email; }
+    public void setEmail(String email) {this.email = email; }
 
-    public BigDecimal setBalance(BigDecimal balance) {this.balance = balance; }
+    public void setBalance(BigDecimal balance) {this.balance = balance; }
 }
