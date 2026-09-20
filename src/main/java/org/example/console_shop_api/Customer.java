@@ -18,9 +18,15 @@ public class Customer {
 
     public Long getId() {return id; }
 
-    public String name() {return name; }
+    public String getName() {return name; }
 
-    public String email() {return email; }
+    public String getEmail() {return email; }
 
     public BigDecimal getBalance() {return balance; }
+
+    public String setName(String name) {this.name = name; }
+
+    public String setEmail(String email) {this.email = email; }
+
+    public BigDecimal setBalance(BigDecimal balance) {this.balance = balance; }
 }
