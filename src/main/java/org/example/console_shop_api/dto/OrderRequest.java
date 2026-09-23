@@ -1,4 +1,4 @@
-package org.example.console_shop_api;
+package org.example.console_shop_api.dto;
 
 import java.util.List;
 

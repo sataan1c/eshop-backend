@@ -1,6 +1,8 @@
-package org.example.console_shop_api;
+package org.example.console_shop_api.controller;
 
 
+import org.example.console_shop_api.entity.Product;
+import org.example.console_shop_api.repository.ProductRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package org.example.console_shop_api;
+package org.example.console_shop_api.dto;
 
 public class OrderItemRequest {
     private Long productId;

@@ -1,4 +1,4 @@
-package org.example.console_shop_api;
+package org.example.console_shop_api.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

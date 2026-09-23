@@ -1,7 +1,10 @@
-package org.example.console_shop_api;
+package org.example.console_shop_api.entity;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -19,9 +22,12 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private OrderStatus status;
 
+
+    @CreationTimestamp
     private Instant createdAt;
 
 
@@ -32,7 +38,7 @@ public class Order {
 
     public Customer getCustomer() {return customer; }
 
-    public String getStatus() {return status; }
+    public OrderStatus getStatus() {return status; }
 
     public Instant getCreatedAt() {return createdAt; }
 

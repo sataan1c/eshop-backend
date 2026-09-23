@@ -1,11 +1,12 @@
-package org.example.console_shop_api;
+package org.example.console_shop_api.controller;
 
 
+import org.example.console_shop_api.dto.OrderRequest;
+import org.example.console_shop_api.entity.Order;
+import org.example.console_shop_api.service.OrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
@@ -17,6 +18,7 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<Order> placeOrder(@RequestBody OrderRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(orderService.placeOrder(request));
+
     }
 
 }
