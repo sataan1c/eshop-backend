@@ -2,6 +2,8 @@ package org.example.console_shop_api.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -9,44 +11,26 @@ import java.math.BigDecimal;
 @Table(name = "products")
 public class Product {
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Getter
+    @Setter
     private String name;
+
+    @Getter
+    @Setter
     private BigDecimal price;
 
     @ManyToOne
+    @Getter
+    @Setter
     @JoinColumn(name = "category_id")
     private Category category;
 
+
+    @Getter
+    @Setter
     private int quantity;
-
-    public Long getId() {return id; }
-
-    public String getName() {return name; }
-
-    public BigDecimal getPrice() {return price; }
-
-    public Category getCategory() {return category; }
-
-    public int getQuantity() {return quantity; }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-
-
 }

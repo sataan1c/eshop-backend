@@ -2,31 +2,31 @@ package org.example.console_shop_api.entity;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "customers")
 public class Customer {
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Getter
+    @Setter
     private String name;
+
+    @Getter
+    @Setter
     private String email;
+
+    @Getter
+    @Setter
     private BigDecimal balance;
-
-    public Long getId() {return id; }
-
-    public String getName() {return name; }
-
-    public String getEmail() {return email; }
-
-    public BigDecimal getBalance() {return balance; }
-
-    public void setName(String name) {this.name = name; }
-
-    public void setEmail(String email) {this.email = email; }
-
-    public void setBalance(BigDecimal balance) {this.balance = balance; }
 }
