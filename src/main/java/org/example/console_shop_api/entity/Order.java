@@ -33,12 +33,10 @@ public class Order {
     @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private OrderStatus status;
 
-
     @CreationTimestamp
     @Getter
     @Setter
     private Instant createdAt;
-
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     @Getter

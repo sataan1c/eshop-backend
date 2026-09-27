@@ -1,6 +1,7 @@
 package org.example.console_shop_api.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @Getter
     @Setter
     @JoinColumn(name = "order_id")
@@ -26,7 +28,6 @@ public class OrderItem {
     @Setter
     @JoinColumn(name = "product_id")
     private Product product;
-
 
     @Getter
     @Setter

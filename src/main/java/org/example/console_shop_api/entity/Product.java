@@ -29,7 +29,6 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-
     @Getter
     @Setter
     private int quantity;
