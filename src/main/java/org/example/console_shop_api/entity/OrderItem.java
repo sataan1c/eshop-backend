@@ -4,11 +4,13 @@ package org.example.console_shop_api.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Entity
+@NoArgsConstructor
 @Table(name = "order_items")
 public class OrderItem {
     @Id
