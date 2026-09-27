@@ -11,6 +11,7 @@ import org.example.console_shop_api.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -39,11 +40,18 @@ public class OrderService {
         order.setCustomer(customer);
         order.setStatus(OrderStatus.pending);
 
-        for (OrderItemRequest itemRequest : request.getItems()) {
+        List<OrderItemRequest> items = request.getItems();
+
+
+        if (items == null || items.isEmpty()) {
+            throw new RuntimeException("Order list is empty.");
+        }
+
+        for (OrderItemRequest itemRequest : items) {
             Product product = productRepository.findById(itemRequest.getProductId())
                     .orElseThrow(() -> new RuntimeException("Product not found"));
 
-            total.add(product.getPrice().multiply(BigDecimal.valueOf(itemRequest.getQuantity())));
+            total = total.add(product.getPrice().multiply(BigDecimal.valueOf(itemRequest.getQuantity())));
 
             if (product.getQuantity() >= itemRequest.getQuantity()) {
                 OrderItem item = new OrderItem();
@@ -59,7 +67,7 @@ public class OrderService {
                 productRepository.save(product);
 
             } else {
-                throw new RuntimeException("Количества товара в заказе превышает количество товара на складе.");
+                throw new RuntimeException("Number of products in order is greater than number of products in stock. ");
             }
         }
 
@@ -67,5 +75,5 @@ public class OrderService {
 
         return orderRepository.save(order);
     }
-
+}
 }
