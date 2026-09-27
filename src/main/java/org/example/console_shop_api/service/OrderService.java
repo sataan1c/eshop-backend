@@ -44,12 +44,16 @@ public class OrderService {
 
 
         if (items == null || items.isEmpty()) {
-            throw new RuntimeException("Order list is empty.");
+            throw new RuntimeException("Order list is empty");
         }
 
         for (OrderItemRequest itemRequest : items) {
             Product product = productRepository.findById(itemRequest.getProductId())
                     .orElseThrow(() -> new RuntimeException("Product not found"));
+
+            if (itemRequest.getQuantity() <= 0) {
+                throw new RuntimeException("Products quantity must be greater than 0");
+            }
 
             total = total.add(product.getPrice().multiply(BigDecimal.valueOf(itemRequest.getQuantity())));
 
